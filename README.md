@@ -1,6 +1,14 @@
 # PRISM-AI internal separability
 
-Code accompanying the paper on the internal separability of prostate lesions with radiomics and AI.
+Code accompanying the manuscript:
+
+Internal Separability Explains AI Generalizability Across Public and Real-World Prostate MRI Cohorts
+
+Authors: Michele Vodret, Mauricio Soto, Giorgio Calleris, Luca Orecchia, Livia Salmi, Michele Nicolazzini, Marco Gatti, Roberto Miano, Alessandro Volpe, Stefano Zapperi, Carlotta Palumbo, and Caterina A. M. La Porta.
+
+This repository contains code supporting the analysis of internal separability in prostate MRI radiomics, including lesion grading, cross-cohort validation, and feature-level separability analyses.
+
+The study was conducted within the PRISM-AI project, combining publicly available prostate MRI datasets with independent clinical cohorts from Novara and Turin, Italy.
 
 ## Contents
 
