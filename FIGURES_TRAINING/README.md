@@ -6,17 +6,19 @@ along with the training code for the classifier and the nnU-Net segmenter.
 
 ## Figure notebooks
 
-- `FIG1_generation.ipynb` and `FIG2_generation.ipynb` document the code and
-  outputs used to generate Figures 1 and 2.
-- `FIG3_generation.ipynb` documents the Figure 3 analysis, including feature
-  selection, classifier training, evaluation, and figure generation. The
-  trained classifier is exported as a `joblib` bundle.
-- `FIG4_generation.ipynb` documents the Figure 4 internal univariate
-  separability procedure.
-
-The notebooks retain outputs from the original analyses. See the accompanying
-README files for the detailed methods and input requirements for Figures 3
-and 4.
+- [`fig1/FIG1_generation.ipynb`](fig1/FIG1_generation.ipynb) and
+  [`fig2/FIG2_generation.ipynb`](fig2/FIG2_generation.ipynb) document the code
+  and outputs used to generate Figures 1 and 2.
+- [`fig3_training_classifier/FIG3_generation.ipynb`](fig3_training_classifier/FIG3_generation.ipynb)
+  documents the Figure 3 analysis, including feature selection, classifier
+  training, evaluation, and figure generation. The trained classifier is
+  exported as a `joblib` bundle. See its
+  [README](fig3_training_classifier/README_feature_selection_classification_FIG3.md)
+  for the detailed method and inputs.
+- [`fig4_internal_separability/FIG4_generation.ipynb`](fig4_internal_separability/FIG4_generation.ipynb)
+  documents the Figure 4 internal univariate-separability procedure. See its
+  [README](fig4_internal_separability/README_internal_separability_FIG4.md)
+  for the detailed method and inputs.
 
 ## nnU-Net segmenter training
 
@@ -24,5 +26,6 @@ and 4.
 shell scripts used to train and evaluate the segmentation model. Its README
 describes the expected data layout, environment, and execution details.
 
-The datasets, trained checkpoints, prediction files, and generated figure
-outputs are not included here.
+The notebooks retain outputs from their original runs. The source datasets,
+prediction files, trained model files, and standalone generated figure files
+are not included in this folder.

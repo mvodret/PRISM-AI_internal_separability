@@ -7,15 +7,15 @@
 The analysis compares three cohorts:
 
 1. **All GT lesions**: the ground-truth radiomic feature table.
-2. **Matched GT lesions**: GT lesions selected by `case_id` values present in the detected-surrogate cohort. The GT feature rows are aligned using `Subject` (or the original index-column fallback in the source code).
-3. **Detected lesions**: surrogate radiomic rows with `dice > 0`.
+2. **Matched GT lesions**: GT lesions selected by `case_id` values present in the combined surrogate prediction labels, before applying the detection filter. The GT feature rows are aligned using `Subject` (or the original index-column fallback in the source code).
+3. **Detected lesions**: surrogate radiomic rows with `dice > 0`. This filter is applied only to this cohort, after the matched-GT cohort is built.
 
 The comparison is performed separately for the **TORINO** and **NOVARA** centers. Center names are normalized before analysis.
 
 For each radiomic feature and center, the code:
 
 
-- Defines the positive class as `GG >2` and the negative class as `GG <= 2`.
+- Defines the positive class as `GG >= 3` and the negative class as `GG <= 2`; rows with `GG <= -1` are excluded.
 - Requires at least five valid observations in **each** class. If either class has fewer than five observations, that feature/center AUC is recorded as missing.
 - Calculates the ROC AUC, then converts it to the direction-independent separability signal
   `AUC_f = abs(AUC - 0.5)`.
@@ -62,11 +62,11 @@ All values are taken from the code in `FIG4_generation.ipynb`.
 |---|---|
 | Positive class | ISUP grade group `GG >= 3` (negative: `0 <= GG <= 2`; cases with `GG = -1` excluded) |
 | Centres (`CENTER_ORDER`) | TORINO, NOVARA (centre names are normalised before use) |
-| Cohorts | All GT; Matched GT (same cases as the detected cohort, GT segmentations); Detected (nnU-Net lesions with `dice > 0`) |
+| Cohorts | All GT; Matched GT (GT lesions whose `case_id` appears in the combined surrogate prediction labels, before Dice filtering); Detected (nnU-Net lesions with `dice > 0`) |
 | Univariate separability | `AUC_f = abs(ROC AUC − 0.5)` per feature and centre |
 | Minimum class size (`MIN_CLASS_PER_CENTER`) | 5 per class and per centre, otherwise the feature is skipped (NaN) |
 | Delta panel | `Detected − Matched GT` of `AUC_f` |
 | Features shown in the delta panel | top 10 ADC (`TOP_ADC_DELTA`), top 10 T2 (`TOP_T2_DELTA`), top 8 Shape (`TOP_SHAPE_DELTA`), ranked by the delta |
-| Colour scales | left heatmaps: `Reds`, shared `vmin = 0`, `vmax = ` global maximum across the three cohorts; delta panel: `Purples`, `vmin = 0`, `vmax = ` maximum of the plotted delta (1.0 if not positive) |
+| Colour scales | Left heatmaps: `Reds`, shared `vmin = 0` and `vmax` equal to the global maximum across the three cohorts; delta panel: `Purples`, `vmin = 0` and `vmax` equal to the maximum plotted delta (or 1.0 if that maximum is not positive) |
 | Figure | `figsize = (5, 6)`, font size 10, output `report_final/feature_separability_gt_matched_detected_delta.pdf` |
 | Cohort sizes (reference) | 1462 (All GT) / 897 (Matched GT) / 917 (Detected) |
