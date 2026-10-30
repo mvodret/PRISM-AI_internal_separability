@@ -6,9 +6,9 @@ Internal Separability Explains AI Generalizability Across Public and Real-World 
 
 Authors: Michele Vodret, Mauricio Soto, Giorgio Calleris, Luca Orecchia, Livia Salmi, Michele Nicolazzini, Marco Gatti, Roberto Miano, Alessandro Volpe, Stefano Zapperi, Carlotta Palumbo, and Caterina A. M. La Porta.
 
-This repository contains code supporting the analysis of internal separability in prostate MRI radiomics, including lesion grading, cross-cohort validation, and feature-level separability analyses.
+This repository contains code supporting the analysis of internal separability in prostate MRI radiomics, including lesion grading, cross-cohort validation, and feature-level separability analyses.  The study combines publicly available prostate MRI datasets with independent clinical cohorts from Novara and Turin, Italy.
 
-The study was conducted within the PRISM-AI project, combining publicly available prostate MRI datasets with independent clinical cohorts from Novara and Turin, Italy.
+This work has been founded by Fondazione AIRC under Next Gen Clinician Scientist 2022 – ID 28402 project: Development of artificial intelligence-based multiplex network for individualized risk stratification of prostate cancer.
 
 ## Contents
 
